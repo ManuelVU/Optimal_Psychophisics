@@ -18,7 +18,7 @@
 %% $Id: elsarticle-template-1-num.tex 149 2009-10-08 05:01:15Z rishi $
 %% $URL: http://lenova.river-valley.com/svn/elsbst/trunk/elsarticle-template-1-num.tex $
 %%
-\documentclass[preprint,12pt]{elsarticle}
+\documentclass[preprint,review,12pt]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[preprint,review,12pt]{elsarticle}
@@ -69,7 +69,7 @@
 
 % \biboptions{}
 
-\journal{Journal Name}
+\journal{Journal of Mathematical Psychology}
 
 \begin{document}
 
@@ -77,7 +77,7 @@
 
 %% Title, authors and addresses
 
-\title{Analysis of QRE in simulated 2 $\times m \times n$ games using Bayesian Methods}
+\title{Optimal Experimental Design: Psychophisics of change point Detection.}
 
 %% use the tnoteref command within \title for footnotes;
 %% use the tnotetext command for the associated footnote;
@@ -104,13 +104,13 @@
 %% \address[label1]{<address>}
 %% \address[label2]{<address>}
 
-\author{Jesus Manuel Villarreal, Darío Trujano, Hrayr Der Hagopian}
+\author{Villarreal, Manuel}
 
 \address{Mexico City, Mexico}
 
 \begin{abstract}
 %% Text of abstract
-Quantal Response Equilibrium (a.k.a. QRE) has proven to be useful in modeling strategic behavior consistent with Bounded Rationality. There are two parameterizations of the Logit model: the first one assumes $\lambda \in (0, \infty)$, as $\lambda \rightarrow \infty$ QRE will coincide with Nash Equilibrium and is interpreted as "Perfectly Rational", whereas if $\lambda \rightarrow 0$, the Players will choose strategies equiprobably, and therefore, is interpreted as "Perfectly Irrational". The second parameterization defines $\mu$ as the reciprocal of $\lambda$, hence, the interpretation is reverted as $\mu \rightarrow \infty$ or $\mu \rightarrow 0$. In estimates, it is generally implied that $\lambda$ has the same value for all Players. In addition, QRE has usually been tested in finite games for two Players with the same number of strategies each. One reason is the difficulty that arises in using MLE for the model. In this paper, we show the results to some simulations we ran, where we wanted to extend QRE to finite games with two Players with different number of strategies each, using Bayesian Methods for the Estimation and breaking away from the assumption that $\lambda$ has the same value for both Players. \end{abstract}
+\end{abstract}
 
 \begin{keyword}
 Science \sep Publication \sep Complicated
@@ -129,63 +129,67 @@ Science \sep Publication \sep Complicated
 \linenumbers
 
 %% main text
-\section{The First Section}
+\section{Introduction}
 \label{S:1}
 
-Maecenas \cite{Smith:2012qr} fermentum \cite{Smith:2013jd} urna ac sapien tincidunt lobortis. Nunc feugiat faucibus varius. Ut sed purus nunc. Ut eget eros quis lectus mollis pharetra ut in tellus. Pellentesque ultricies velit sed orci pharetra et fermentum lacus imperdiet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse commodo ultrices mauris, condimentum hendrerit lorem condimentum et. Pellentesque urna augue, semper et rutrum ac, consequat id quam. Proin lacinia aliquet justo, ut suscipit massa commodo sit amet. Proin vehicula nibh nec mauris tempor interdum. Donec orci ante, tempor a viverra vel, volutpat sed orci.
+Why is is detecting changes important for an organism?
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque quis interdum velit. Nulla tincidunt sem quis nisi molestie nec hendrerit nulla interdum. Nunc at lectus at neque dapibus dapibus sit amet in massa. Nam ut nisl in diam consectetur dignissim. Sed lacinia diam id nunc suscipit vitae semper lorem semper. In vehicula velit at tortor fringilla elementum aliquam erat blandit. Donec pretium libero et neque vehicula blandit. Curabitur consequat interdum sem at ultrices. Sed at tincidunt metus. Etiam vulputate, lacus eget fermentum posuere, ante mi dignissim augue, et ultrices felis tortor sed nisl.
+Change detection in probabilistic series.
 
-\begin{itemize}
-\item Bullet point one
-\item Bullet point two
-\end{itemize}
+Arising problems with experimental design.
 
-\begin{enumerate}
-\item Numbered list item one
-\item Numbered list item two
-\end{enumerate}
+\subsection{Optimal experimental design}
 
-\subsection{Subsection One}
+Elements: 
 
-Quisque elit ipsum, porttitor et imperdiet in, facilisis ac diam. Nunc facilisis interdum felis eget tincidunt. In condimentum fermentum leo, non consequat leo imperdiet pharetra. Fusce ac massa ipsum, vel convallis diam. Quisque eget turpis felis. Curabitur posuere, risus eu placerat porttitor, magna metus mollis ipsum, eu volutpat nisl erat ac justo. Nullam semper, mi at iaculis viverra, nunc velit iaculis nunc, eu tempor ligula eros in nulla. Aenean dapibus eleifend convallis. Cras ut libero tellus. Integer mollis eros eget risus malesuada fringilla mattis leo facilisis. Etiam interdum turpis eget odio ultricies sed convallis magna accumsan. Morbi in leo a mauris sollicitudin molestie at non nisl.
+% EXAMPLE CITING Maecenas \cite{Smith:2012qr} fermentum \cite{Smith:2013jd} %
 
-\begin{table}[h]
-\centering
-\begin{tabular}{l l l}
-\hline
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\hline
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\hline
-\end{tabular}
-\caption{Table caption}
-\end{table}
+%EXAMPLE ITMES and  ENUMERATING
+%\begin{itemize}
+%\item Bullet point one
+%\item Bullet point two
+%\end{itemize}
+%\begin{enumerate}
+%\item Numbered list item one
+%\item Numbered list item two
+%\end{enumerate}
 
-\subsection{Subsection Two}
+%%%% EXAMPLE TABLE
+%\begin{table}[h]
+%\centering
+%\begin{tabular}{l l l}
+%\hline
+%\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+%\hline
+%Treatment 1 & 0.0003262 & 0.562 \\
+%Treatment 2 & 0.0015681 & 0.910 \\
+%Treatment 3 & 0.0009271 & 0.296 \\
+%\hline
+%\end{tabular}
+%\caption{Table caption}
+%\end{table}
 
-Donec eget ligula venenatis est posuere eleifend in sit amet diam. Vestibulum sollicitudin mauris ac augue blandit ultricies. Nulla facilisi. Etiam ut turpis nunc. Praesent leo orci, tincidunt vitae feugiat eu, feugiat a massa. Duis mauris ipsum, tempor vel condimentum nec, suscipit non mi. Fusce quis urna dictum felis posuere sagittis ac sit amet erat. In in ultrices lectus. Nulla vitae ipsum lectus, a gravida erat. Etiam quam nisl, blandit ut porta in, accumsan a nibh. Phasellus sodales euismod dolor sit amet elementum. Phasellus varius placerat erat, nec gravida libero pellentesque id. Fusce nisi ante, euismod nec cursus at, suscipit a enim. Nulla facilisi.
+%%%% EXAMPLE Labeled Equiation
+%\begin{equation}
+%\label{eq:emc}
+%e = mc^2
+%\end{equation}
 
-Integer risus dui, condimentum et gravida vitae, adipiscing et enim. Aliquam erat volutpat. Pellentesque diam sapien, egestas eget gravida ut, tempor eu nulla. Vestibulum mollis pretium lacus eget venenatis. Fusce gravida nisl quis est molestie eu luctus ipsum pretium. Maecenas non eros lorem, vel adipiscing odio. Etiam dolor risus, mattis in pellentesque id, pellentesque eu nibh. Mauris nec ante at orci ultricies placerat ac non massa. Aenean imperdiet, ante eu sollicitudin vestibulum, dolor felis dapibus arcu, sit amet fermentum urna nibh sit amet mauris. Suspendisse adipiscing mollis dolor quis lobortis.
-
-\begin{equation}
-\label{eq:emc}
-e = mc^2
-\end{equation}
-
-\section{The Second Section}
+\section{Optimal Experimental Design: Example}
 \label{S:2}
 
-Reference to Section \ref{S:1}. Etiam congue sollicitudin diam non porttitor. Etiam turpis nulla, auctor a pretium non, luctus quis ipsum. Fusce pretium gravida libero non accumsan. Donec eget augue ut nulla placerat hendrerit ac ut mi. Phasellus euismod ornare mollis. Proin tempus fringilla ultricies. Donec pretium feugiat libero quis convallis. Nam interdum ante sed magna congue eu semper tellus sagittis. Curabitur eu augue elit.
+ % EXAMPLE Reference of a labeled Section \ref{S:1}
 
-Aenean eleifend purus et massa consequat facilisis. Etiam volutpat placerat dignissim. Ut nec nibh nulla. Aliquam erat volutpat. Nam at massa velit, eu malesuada augue. Maecenas sit amet nunc mauris. Maecenas eu ligula quis turpis molestie elementum nec at est. Sed adipiscing neque ac sapien viverra sit amet vestibulum arcu rhoncus.
 
-Vivamus pharetra nibh in orci euismod congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque lacus diam, congue vel laoreet id, iaculis eu sapien. In id risus ac leo pellentesque pellentesque et in dui. Etiam tincidunt quam ut ante vestibulum ultricies. Nam at rutrum lectus. Aenean non justo tortor, nec mattis justo. Aliquam erat volutpat. Nullam ac viverra augue. In tempus venenatis nibh quis semper. Maecenas ac nisl eu ligula dictum lobortis. Sed lacus ante, tempor eu dictum eu, accumsan in velit. Integer accumsan convallis porttitor. Maecenas pretium tincidunt metus sit amet gravida. Maecenas pretium blandit felis, ac interdum ante semper sed.
+\section{Results}
+\label{S:3}
 
-In auctor ultrices elit, vel feugiat ligula aliquam sed. Curabitur aliquam elit sed dui rhoncus consectetur. Cras elit ipsum, lobortis a tempor at, viverra vitae mi. Cras sed urna sed eros bibendum faucibus. Morbi vel leo orci, vel faucibus orci. Vivamus urna nisl, sodales vitae posuere in, tempus vel tellus. Donec magna est, luctus non commodo sit amet, placerat et enim.
+\subsection{Consruction of the prior distribution}
 
+\subsection{Optimal design}
+
+\section{Discussion}
+\label{S:3}
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
 %% \appendix
