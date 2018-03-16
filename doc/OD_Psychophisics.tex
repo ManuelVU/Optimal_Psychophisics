@@ -77,7 +77,7 @@
 
 %% Title, authors and addresses
 
-\title{Optimal Experimental Design: Psychophisics of change point Detection.}
+\title{Optimal Experimental Design: Psychophysics of change point Detection.}
 
 %% use the tnoteref command within \title for footnotes;
 %% use the tnotetext command for the associated footnote;
@@ -104,7 +104,7 @@
 %% \address[label1]{<address>}
 %% \address[label2]{<address>}
 
-\author{Villarreal, Manuel}
+\author{Manuel Villarreal and Arturo Bouzas}
 
 \address{Mexico City, Mexico}
 
@@ -113,7 +113,7 @@
 \end{abstract}
 
 \begin{keyword}
-Science \sep Publication \sep Complicated
+Optimal Experimental Design \sep Psycophysics \sep Change Point Detection
 %% keywords here, in the form: keyword \sep keyword
 
 %% MSC codes here, in the form: \MSC code \sep code
@@ -132,15 +132,22 @@ Science \sep Publication \sep Complicated
 \section{Introduction}
 \label{S:1}
 
-Why is is detecting changes important for an organism?
+Experimental design
+First we need a research question, then the prolem of designin the experiment arises, how many participants should we test, what are the values of the independent variable that we should use, how many times should we present each of those values, etc. The problem is when 
 
-Change detection in probabilistic series.
 
-Arising problems with experimental design.
+% Why is is detecting changes important for an organism?
+% 
+% Change detection in probabilistic series.
+% 
+% Arising problems with experimental design.
 
 \subsection{Optimal experimental design}
 
-Elements: 
+Elements:
+
+Design space: what are the elements of the experimental design that we want to optimize
+Utility Function: function that maps points on the design space to the real numbers, this function should reflect the objective of the experiment, for example if we want to discriminate between two cognitive models, the utility function should assign a greater value to an experimental design for which the models give different predictions that to designs for which the predictions of the models are indistinguishable from one another.
 
 % EXAMPLE CITING Maecenas \cite{Smith:2012qr} fermentum \cite{Smith:2013jd} %
 
@@ -178,18 +185,59 @@ Elements:
 \section{Optimal Experimental Design: Example}
 \label{S:2}
 
- % EXAMPLE Reference of a labeled Section \ref{S:1}
+Why is is detecting changes important for an organism?
 
+Change detection in probabilistic series.
+
+Arising problems with experimental design.
+
+Research question and its statistichal interpretation
+
+Assumtion about the relationship between a subjects response the dependent variable under study
+
+Design space for this problem and how to reduce the dimensionality of the space by assuming experimental constraints.
+
+Utility function and its relationship with the objective of the experiment
+
+Arising problems with utility function and the proposed response function. Bayesian solution, assigning a prior distribution to the parameters, the less research in a field the more difficult it is to assign an informative prior, however, we could use other cognitive models in order to propose a prior distribution. 
+ % EXAMPLE Reference of a labeled Section \ref{S:1}
+\subsection{Using a model to generate prior distributions}
+
+Using the prior distribution, the utility function and the definition of a design space we can otimize the experimental design in this case we are looking for \begin{math}\mathbf{\delta\theta}^{*}\end{math} that maximizes the following equation:
+
+\begin{equation}
+U(\mathbf{\delta\theta}^{*})=\max_{\delta\theta} \int_{\mathbf{\beta}} log(det(I(\beta|\mathbf{\delta\theta}))) \pi(\mathbf{\beta}) d\mathbf{\beta}
+\end{equation}
+
+The previous integral can be approximated via Monte Carlo sampling
 
 \section{Results}
 \label{S:3}
 
 \subsection{Consruction of the prior distribution}
 
+Prior over model parameters(Gallistel et al 2014)
+Results
+Constructing the prior: we take a multivariate normal distribution with mean and covariance equal to the unbiased estimators for both parameters.
+
+
 \subsection{Optimal design}
+
+Aproximating the utility function (integral) throught Monte Carlo simulation 
+Utility aproximation for 2 Design points 
+
+the approximation returns a smooth curve over the 2 point design space.
 
 \section{Discussion}
 \label{S:3}
+
+Optimal design for the example
+Properties of the most useful points (they land on the points of the curve where the steepness changes most dramatically)
+
+Advantages of Optimal Design
+
+Using models to generte prior distributions.
+
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
 %% \appendix

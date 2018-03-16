@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 MAR 2018 12:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  15 MAR 2018 20:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -88,6 +88,7 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 \@sep=\skip43
 \@@sep=\skip44
 
+(./OD_Psychophisics.spl)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip45
@@ -147,7 +148,11 @@ Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \bframebox=\box30
 LaTeX Info: Redefining \\ on input line 3056.
 )
-No file OD_Psychophisics.aux.
+(./OD_Psychophisics.aux
+
+LaTeX Warning: Label `S:3' multiply defined.
+
+)
 \openout1 = `OD_Psychophisics.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
@@ -162,7 +167,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
 LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
 LaTeX Font Info:    ... okay on input line 74.
-(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count103
 \scratchdimen=\dimen114
@@ -226,81 +231,47 @@ e
 (/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 113.
+LaTeX Font Info:    Try loading font information for U+msa on input line 124.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 113.
+LaTeX Font Info:    Try loading font information for U+msb on input line 124.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-Package natbib Warning: Citation `Smith:2012qr' on page 1 undefined on input li
-ne 135.
+) [1
 
 
-Package natbib Warning: Citation `Smith:2013jd' on page 1 undefined on input li
-ne 135.
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+(./OD_Psychophisics.bbl) [3] (./OD_Psychophisics.aux)
 
-[1
-
-
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 140.
-
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 140.
- [2]
-
-LaTeX Warning: Reference `S:1' on page 3 undefined on input line 181.
-
-
-Overfull \hbox (8.08151pt too wide) in paragraph at lines 185--186
-\OT1/cmr/m/n/12 morbi tris-tique senec-tus et ne-tus et male-suada fames ac tur
-pis eges-tas. Quisque
- []
-
-[3]
-No file OD_Psychophisics.bbl.
-
-Package natbib Warning: There were undefined citations.
-
-[4] (./OD_Psychophisics.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2864 strings out of 493089
- 40002 string characters out of 6134842
- 110301 words of memory out of 5000000
- 6295 multiletter control sequences out of 15000+600000
- 12229 words of font info for 46 fonts, out of 8000000 for 9000
+ 2847 strings out of 493089
+ 39719 string characters out of 6134842
+ 108446 words of memory out of 5000000
+ 6273 multiletter control sequences out of 15000+600000
+ 11195 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,7n,30p,1337b,206s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,4n,30p,459b,198s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
 texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on OD_Psychophisics.pdf (4 pages, 120406 bytes).
+Output written on OD_Psychophisics.pdf (3 pages, 122424 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 58 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
