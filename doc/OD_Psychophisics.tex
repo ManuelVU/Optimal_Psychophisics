@@ -134,15 +134,32 @@ One of the main challenges in scientific research is the design of an experiment
 
 When designing an experiment, often one start's by making decisions about the number of participants, how many and what values of our independent variable should we test or how many times should we test each of those values. Most of the time, these choices are made on the basis of previous research on the field. However, it might be the case that there is not enough information to make these decisions with confidence, or that the values that are commonly used, do not allow for strong conclusions. Optimal Experimental Design (OED) offers an alternative to solve this kind of problems through the formalization of the design problem.
 
-The concept of optimizing an experimental design is not new to psychological research. There are already examples in the literature of design optimization \citep[e.g.][]{Myung2009,ZL2010}. Both of this examples discuss and demostrate the advantages of OED for model comparison in psychology. In the present paper we will present a different approach were the problem is not to select between two models but to estimate the parameters of a single one.
+OED allows us to re-interpret the problem of an experimental design as a decision problem, in which the purpose is to maximize a utility function. This function is a numeric representation of our preference over the possible consequences of running an experiment. Therefore, the optimization of an experimental design requires us to have a formal interpretation of the purpose of the experiment.
+
+The concept of optimizing an experimental design is not new to psychological research. There are already examples in the literature of design optimization \citep[e.g.][]{Myung2009,ZL2010}. Both of this examples discuss and demonstrate the advantages of OED for model comparison in psychology. In this paper, we will present a different approach where the problem is not to select between two models but to estimate the parameters of a single one.
 
 %falta alguna cita despues de "widely used in psychophisics".
 %falta alguna cita despues de "which has been used to model the relationship between a phisical stimulus and the probability of a given response".
-In particular, we will present an example of OED in the context of Generalized Linear Models. This type of models are widely used in psychophisics. The problem that will be treated here is farly new, however, the methodological aspects remain the same even with more straight-foward psychiphisical experiments. In order to do this we will use a particular parametrization of the logistic model, which has been used to model the relationship between a phisical stimulus and the probability of a given response.
+In particular, we will present an example of OED in the context of Generalized Linear Models. These models are widely used in psychophysics. The problem that will be treated here is fairly new, however, the methodological aspects remain the same even with more straight-forward psychophysical experiments. In order to do this, we will use a particular parametrization of the logistic model which is primarily used in statistical inference.
 
+%has been used to account for the behaviour of participants in studies about discrimination of physical stimulus.
 
+\section{Optimal experimental design}
 
-\section{OUTLINE}
+In order to apply the concepts of OED to a particular problem, first, we need to define the elements of the design space. This design space is defined by the variables that we can manipulate during the experiment, for example, the values that our independent variable might take or the weight (proportion of observations) assigned to each of those values. These elements are the ones that we can modify in order to optimize the design.
+
+The second step would be to formalise the objective of the experiment. For example, in the case of a logistic model, we might want to find the values of our independent variable that minimize the variance of the model parameters, or we might be interested in the magnitude of the physical stimulus for which the probability of a response takes on a certain value. The formalization of the research question will define a utility function.
+
+The last step is to specify the prior information that we have about the problem at hand. This last step can be carried out in two ways, first, we can try to optimize the experiment for a particular guess about the parameter values of the model of interest, or we could use a probability distribution to account for the uncertainty in the values that we are interested in. This last step is primarily important to the optimization process for generalized linear models, because the optimal design will depend on the values of the parameters.
+
+Once we have defined the design space $\eta$, the objective of the experiment and the prior informartion $p(\theta)$, the expected utility of a design is represented by the following equation:
+\begin{equation}
+U(\eta)=\int \int U(\eta,y,\theta)p(\theta|y,\eta)p(y|\eta)d\theta dy
+\label{eu}
+\end{equation}
+Therefore, finding the experimental design that is optimal given a utility function reduces to the problem of finding de values for the variables in $\eta$ for which equation \ref{eu} takes it's maximum value.
+
+the objective would be to find the values in the design space that bring a higher utility.
 
 Experimental design
 First we need a research question, then the problem of designing the experiment arises, how many participants should we test, what are the values of the independent variable that we should use, how many times should we present each of those values, etc. The problem is when 
@@ -154,12 +171,13 @@ First we need a research question, then the problem of designing the experiment 
 % 
 % Arising problems with experimental design.
 
-\subsection{Optimal experimental design}
 
 Elements:
 
 Design space: what are the elements of the experimental design that we want to optimize
 Utility Function: function that maps points on the design space to the real numbers, this function should reflect the objective of the experiment, for example if we want to discriminate between two cognitive models, the utility function should assign a greater value to an experimental design for which the models give different predictions that to designs for which the predictions of the models are indistinguishable from one another.
+
+\section{OUTLINE}
 
 % EXAMPLE CITING Maecenas \cite{Smith:2012qr} fermentum \cite{Smith:2013jd} %
 
