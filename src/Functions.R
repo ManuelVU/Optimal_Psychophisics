@@ -1,13 +1,5 @@
-# This file is for the functions used in the optimal experimental design project
-ellipsoid<-function(x1,x2){
-  R<-c()
-  for(i in 1:length(x1)){
-    o<-c(x1[i],x2[i])
-    R[i]<-(t(o-mu)%*%solve(mlvar)%*%(o-mu))
-  }
-  return(R)
-}
-# Equal weights desgins
+# This file is for the functions used in the optimal experimental design project 
+#### Equal weights desgins ####
 asint_aprox_phi<-function(dt,sim){
   information<-c()
   theta<-matrix(c(rep(1,length(dt)),c(dt)),ncol=2)
@@ -38,7 +30,7 @@ aprox_phi_int<-function(x,dt){
   }
   return(information)
 }
-# Unequal wights design
+##### Unequal wights design ####
 fisherI<-function(theta,eta,n.p,joint=FALSE,parbeta,parmu,center,sigma){
   x<-c(eta[1:n.p])
   n<-eta[(n.p+1):length(eta)]
@@ -91,3 +83,4 @@ phi<-function(eta,n.p,joint=FALSE,beta,mu,mean,var){
     return(-integrando)
   }
 }
+##### Directional derivatives ####
