@@ -84,3 +84,24 @@ phi<-function(eta,n.p,joint=FALSE,beta,mu,mean,var){
   }
 }
 ##### Directional derivatives ####
+deta_dx<-function(theta,eta_0,y,joint=FALSE,parbeta,parmu,center,sigma,n.p){
+  x<-eta_0[1:n.p]
+  n<-eta_0[(n.p+1):(2*n.p)]
+  p<-1/(1+exp(-theta[1]*(x-theta[2])))
+  w<-p*(1-p)
+  t<-sum(n*w)
+  xbar<-(1/t)*sum(n*w*x)
+  s<-sum(n*w*(x-xbar)^2)
+  xy<-y
+  py<-1/(1+exp(-theta[1]*(xy-theta[2])))
+  wy<-py*(1-py)
+  if(joint==TRUE){
+    inf<-(wy*((1/t)+((xbar-xy)^2)*(1/s)))*
+      dmvnorm(theta,mean=center,sigma=sigma)
+  }
+  else{
+    inf<-(wy*((1/t)+((xbar-xy)^2)*(1/s)))*
+      dunif(theta[1],parbeta[1],parbeta[2])*dunif(theta[2],parmu[1],parmu[2])
+  }
+  return(inf)
+}
