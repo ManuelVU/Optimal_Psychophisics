@@ -1,4 +1,10 @@
 # This file is for the functions used in the optimal experimental design project 
+load("~/Dropbox/Tesina/Experimental Sim/Data/HFA_rare_t1t2_pmdelta.Rdata")
+sigmoid<-function(theta,data,x,k=35){
+  p<-1/(1+exp(-theta[1]*(x-theta[2])))
+  loglik<-dbinom(k*data,k,p,log = T)
+  return(-sum(loglik))
+}
 #### Equal weights desgins ####
 asint_aprox_phi<-function(dt,sim){
   information<-c()
@@ -76,7 +82,7 @@ phi<-function(eta,n.p,joint=FALSE,beta,mu,mean,var){
     integrando<-cuhre(2,1,integrand=fisherI,rel.tol = 0.01,
                       lower=c(beta[1],mu[1]),upper=c(beta[2],mu[2]),
                       eta=eta,n.p=design.points,
-                      parbeta=c(beta),parmu=c(mu))$value
+                      parbeta=c(beta[1],beta[2]),parmu=c(mu[1],mu[2]))$value
     if(is.nan(integrando)){
       integrando<- -999
     }
@@ -84,24 +90,26 @@ phi<-function(eta,n.p,joint=FALSE,beta,mu,mean,var){
   }
 }
 ##### Directional derivatives ####
-deta_dx<-function(theta,eta_0,y,joint=FALSE,parbeta,parmu,center,sigma,n.p){
+deta_dx<-function(theta,eta_0,evaluando,joint=FALSE,parbeta,parmu,center,sigma,n.p){
+  theta1<-theta[1]
+  theta2<-theta[2]
   x<-eta_0[1:n.p]
   n<-eta_0[(n.p+1):(2*n.p)]
-  p<-1/(1+exp(-theta[1]*(x-theta[2])))
+  p<-1/(1+exp(-theta1*(x-theta2)))
   w<-p*(1-p)
   t<-sum(n*w)
   xbar<-(1/t)*sum(n*w*x)
   s<-sum(n*w*(x-xbar)^2)
-  xy<-y
-  py<-1/(1+exp(-theta[1]*(xy-theta[2])))
+  xy<-evaluando
+  py<-1/(1+exp(-theta1*(xy-theta2)))
   wy<-py*(1-py)
   if(joint==TRUE){
     inf<-(wy*((1/t)+((xbar-xy)^2)*(1/s)))*
-      dmvnorm(theta,mean=center,sigma=sigma)
+      dmvnorm(c(theta1,theta[2]),mean=center,sigma=sigma)
   }
   else{
     inf<-(wy*((1/t)+((xbar-xy)^2)*(1/s)))*
-      dunif(theta[1],parbeta[1],parbeta[2])*dunif(theta[2],parmu[1],parmu[2])
+      dunif(theta1,parbeta[1],parbeta[2])*dunif(theta2,parmu[1],parmu[2])
   }
   return(inf)
 }
