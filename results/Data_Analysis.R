@@ -16,15 +16,15 @@ for(i in 1:length(HFA[1,1,1,])){
   ld50[i]<-result$par[2]
 }
 #### Parameters: prior distributions for optimization ####
-beta_p1<-c(0,10)
-beta_p2<-c(20,30)
+beta_p1<-c(2,8)
+beta_p2<-c(15,18)
 mu_p1<-c(0,1)
-mu_p2<-c(0,0.5)
+mu_p2<-c(0.1,0.6)
 joint_mu<-c(mean(slope),mean(ld50))
 joint_sigma<-as.matrix(var(cbind(slope,ld50)))
 
 #### Number of optimal points by prior ####
-# Uniform prior 1,1
+#### Uniform prior 1,1 ####
 design.points<-4
 d1<-optim(par=c(seq(.01,.9,length.out = design.points),
                 rep(1/design.points,design.points)),
@@ -33,20 +33,105 @@ d1<-optim(par=c(seq(.01,.9,length.out = design.points),
           beta=beta_p1,mu=mu_p1,
           lower=c(rep(0,design.points),rep(0,design.points)),
           upper=c(rep(1,design.points),rep(1,design.points)))
-diseno<-c(d1$par[1:4],d1$par[5:8]/sum(d1$par[5:8]))
+diseno1<-c(d1$par[1:design.points],
+          d1$par[(design.points+1):(2*design.points)]/
+            sum(d1$par[(design.points+1):(2*design.points)]))
 evaluaciones<-seq(0,1,0.001)
-pruebas<-matrix(NA,nrow=length(evaluaciones),ncol=2)
+pruebas1<-matrix(NA,nrow=length(evaluaciones),ncol=3)
 for(i in 1:length(evaluaciones)){
-  pruebas[i,1]<-evaluaciones[i]
-  pruebas[i,2]<-cuhre(2,1,integrand=deta_dx,
-                      n.p=design.points,eta_0=diseno,
-                      evaluando=evaluaciones[i],
-                      parbeta=beta_p1,
-                      parmu=mu_p1,
-                      rel.tol = 0.0001,
-                      lower=c(beta_p1[1],mu_p1[1]),
-                      upper=c(beta_p1[2],mu_p1[2]))$value
+  pruebas1[i,1]<-evaluaciones[i]
+  integrada<-cuhre(2,1,integrand=deta_dx,
+                   n.p=design.points,eta_0=diseno1,
+                   evaluando=evaluaciones[i],
+                   parbeta=beta_p1,
+                   parmu=mu_p1,
+                   rel.tol = 0.0001,
+                   lower=c(beta_p1[1],mu_p1[1]),
+                   upper=c(beta_p1[2],mu_p1[2]))
+  pruebas1[i,2]<-integrada$value
+  pruebas1[i,3]<-integrada$abs.error
     
 }
-plot(pruebas[,1],pruebas[,2]-2,type="l")
-points(diseno[1:4],rep(0,4))
+#### Uniform prior 1,2 ####
+design.points<-3
+d2<-optim(par=c(seq(.01,.9,length.out = design.points),
+                rep(1/design.points,design.points)),
+          fn=phi,method="L-BFGS-B",
+          n.p=design.points,
+          beta=beta_p1,mu=mu_p2,
+          lower=c(rep(0,design.points),rep(0,design.points)),
+          upper=c(rep(1,design.points),rep(1,design.points)))
+diseno2<-c(d2$par[1:design.points],
+           d2$par[(design.points+1):(2*design.points)]/
+             sum(d2$par[(design.points+1):(2*design.points)]))
+evaluaciones<-seq(0,1,0.001)
+pruebas2<-matrix(NA,nrow=length(evaluaciones),ncol=3)
+for(i in 1:length(evaluaciones)){
+  pruebas2[i,1]<-evaluaciones[i]
+  integrada<-cuhre(2,1,integrand=deta_dx,
+                   n.p=design.points,eta_0=diseno2,
+                   evaluando=evaluaciones[i],
+                   parbeta=beta_p1,
+                   parmu=mu_p2,
+                   rel.tol = 0.0001,
+                   lower=c(beta_p1[1],mu_p2[1]),
+                   upper=c(beta_p1[2],mu_p2[2]))
+  pruebas2[i,2]<-integrada$value
+  pruebas2[i,3]<-integrada$abs.error
+  
+}
+#### Uniform prior 2,1 ####
+design.points<-8
+d3<-optim(par=c(seq(.01,.9,length.out = design.points),
+                rep(1/design.points,design.points)),
+          fn=phi,method="L-BFGS-B",
+          n.p=design.points,
+          beta=beta_p2,mu=mu_p1,
+          lower=c(rep(0,design.points),rep(0,design.points)),
+          upper=c(rep(1,design.points),rep(1,design.points)))
+diseno3<-c(d3$par[1:design.points],
+           d3$par[(design.points+1):(2*design.points)]/
+           sum(d3$par[(design.points+1):(2*design.points)]))
+evaluaciones<-seq(0,1,0.0001)
+pruebas3<-matrix(NA,nrow=length(evaluaciones),ncol=3)
+for(i in 1:length(evaluaciones)){
+  pruebas3[i,1]<-evaluaciones[i]
+  integrada<-cuhre(2,1,integrand=deta_dx,
+                   n.p=design.points,eta_0=diseno3,
+                   evaluando=evaluaciones[i],
+                   parbeta=beta_p2,
+                   parmu=mu_p1,
+                   rel.tol = 0.0001,
+                   lower=c(beta_p2[1],mu_p1[1]),
+                   upper=c(beta_p2[2],mu_p1[2]))
+  pruebas3[i,2]<-integrada$value
+  pruebas3[i,3]<-integrada$abs.error
+  
+}
+#### Uniform prior 2,2 ####
+design.points<-4
+d4<-optim(par=c(seq(.01,.9,length.out = design.points),
+                rep(1/design.points,design.points)),
+          fn=phi,method="L-BFGS-B",
+          n.p=design.points,
+          beta=beta_p2,mu=mu_p2,
+          lower=c(rep(0,design.points),rep(0,design.points)),
+          upper=c(rep(1,design.points),rep(1,design.points)))
+diseno4<-c(d4$par[1:design.points],
+           d4$par[(design.points+1):(2*design.points)]/
+             sum(d4$par[(design.points+1):(2*design.points)]))
+evaluaciones<-seq(0,1,0.001)
+pruebas4<-matrix(NA,nrow=length(evaluaciones),ncol=3)
+for(i in 1:length(evaluaciones)){
+  pruebas4[i,1]<-evaluaciones[i]
+  integrada<-cuhre(2,1,integrand=deta_dx,
+                   n.p=design.points,eta_0=diseno4,
+                   evaluando=evaluaciones[i],
+                   parbeta=beta_p2,
+                   parmu=mu_p2,
+                   rel.tol = 0.0001,
+                   lower=c(beta_p2[1],mu_p2[1]),
+                   upper=c(beta_p2[2],mu_p2[2]))
+  pruebas4[i,2]<-integrada$value
+  pruebas4[i,3]<-integrada$abs.error
+}

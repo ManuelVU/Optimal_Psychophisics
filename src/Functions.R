@@ -1,5 +1,4 @@
 # This file is for the functions used in the optimal experimental design project 
-load("~/Dropbox/Tesina/Experimental Sim/Data/HFA_rare_t1t2_pmdelta.Rdata")
 sigmoid<-function(theta,data,x,k=35){
   p<-1/(1+exp(-theta[1]*(x-theta[2])))
   loglik<-dbinom(k*data,k,p,log = T)
