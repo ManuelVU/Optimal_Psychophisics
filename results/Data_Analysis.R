@@ -26,6 +26,7 @@ joint_sigma<-as.matrix(var(cbind(slope,ld50)))
 #### Number of optimal points by prior ####
 #### Uniform prior 1,1 ####
 design.points<-4
+od1<-4
 d1<-optim(par=c(seq(.01,.9,length.out = design.points),
                 rep(1/design.points,design.points)),
           fn=phi,method="L-BFGS-B",
@@ -54,6 +55,7 @@ for(i in 1:length(evaluaciones)){
 }
 #### Uniform prior 1,2 ####
 design.points<-3
+od2<-3
 d2<-optim(par=c(seq(.01,.9,length.out = design.points),
                 rep(1/design.points,design.points)),
           fn=phi,method="L-BFGS-B",
@@ -82,6 +84,7 @@ for(i in 1:length(evaluaciones)){
 }
 #### Uniform prior 2,1 ####
 design.points<-8
+od3<-8
 d3<-optim(par=c(seq(.01,.9,length.out = design.points),
                 rep(1/design.points,design.points)),
           fn=phi,method="L-BFGS-B",
@@ -110,6 +113,7 @@ for(i in 1:length(evaluaciones)){
 }
 #### Uniform prior 2,2 ####
 design.points<-4
+od4<-4
 d4<-optim(par=c(seq(.01,.9,length.out = design.points),
                 rep(1/design.points,design.points)),
           fn=phi,method="L-BFGS-B",
@@ -134,4 +138,33 @@ for(i in 1:length(evaluaciones)){
                    upper=c(beta_p2[2],mu_p2[2]))
   pruebas4[i,2]<-integrada$value
   pruebas4[i,3]<-integrada$abs.error
+}
+#### Joint Normal ####
+design.points<-2
+odj<-2
+dj<-optim(par=c(seq(.01,.9,length.out = design.points),
+                rep(1/design.points,design.points)),
+          fn=phi,method="L-BFGS-B",
+          n.p=design.points,joint=TRUE,
+          mean=joint_mu,var=joint_sigma,
+          lower=c(rep(0,design.points),rep(0,design.points)),
+          upper=c(rep(1,design.points),rep(1,design.points)))
+disenoj<-c(dj$par[1:design.points],
+           dj$par[(design.points+1):(2*design.points)]/
+             sum(dj$par[(design.points+1):(2*design.points)]))
+evaluaciones<-seq(0,1,0.001)
+pruebasj<-matrix(NA,nrow=length(evaluaciones),ncol=3)
+for(i in 1:length(evaluaciones)){
+  pruebasj[i,1]<-evaluaciones[i]
+  integrada<-cuhre(2,1,integrand=deta_dx,
+                   n.p=design.points,eta_0=disenoj,
+                   evaluando=evaluaciones[i],
+                   joint=TRUE,
+                   center=joint_mu,
+                   sigma=joint_sigma,
+                   rel.tol = 0.0001,
+                   lower=c(-0.5,0),
+                   upper=c(30,0.6))
+  pruebasj[i,2]<-integrada$value
+  pruebasj[i,3]<-integrada$abs.error
 }
