@@ -1,36 +1,35 @@
-%% This is file `elsarticle-template-1-num.tex',
-%%
-%% Copyright 2009 Elsevier Ltd
-%%
-%% This file is part of the 'Elsarticle Bundle'.
-%% ---------------------------------------------
-%%
-%% It may be distributed under the conditions of the LaTeX Project Public
-%% License, either version 1.2 of this license or (at your option) any
-%% later version.  The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.2 or later is part of all distributions of LaTeX
-%% version 1999/12/01 or later.
-%%
-%% Template article for Elsevier's document class `elsarticle'
-%% with numbered style bibliographic references
-%%
-%% $Id: elsarticle-template-1-num.tex 149 2009-10-08 05:01:15Z rishi $
-%% $URL: http://lenova.river-valley.com/svn/elsbst/trunk/elsarticle-template-1-num.tex $
-%%
+% This is file `elsarticle-template-1-num.tex',
+%
+% Copyright 2009 Elsevier Ltd
+%
+% This file is part of the 'Elsarticle Bundle'.
+% ---------------------------------------------
+%
+% It may be distributed under the conditions of the LaTeX Project Public
+% License, either version 1.2 of this license or (at your option) any
+% later version.  The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.2 or later is part of all distributions of LaTeX
+% version 1999/12/01 or later.
+%
+% Template article for Elsevier's document class `elsarticle'
+% with numbered style bibliographic references
+%
+% $Id: elsarticle-template-1-num.tex 149 2009-10-08 05:01:15Z rishi $
+% $URL: http://lenova.river-valley.com/svn/elsbst/trunk/elsarticle-template-1-num.tex $
 \documentclass[preprint,review,12pt]{elsarticle}
 
 %% Use the option review to obtain double line spacing
 %% \documentclass[preprint,review,12pt]{elsarticle}
 
-%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
-%% for a journal layout:
-%% \documentclass[final,1p,times]{elsarticle}
-%% \documentclass[final,1p,times,twocolumn]{elsarticle}
-%% \documentclass[final,3p,times]{elsarticle}
-%% \documentclass[final,3p,times,twocolumn]{elsarticle}
-%% \documentclass[final,5p,times]{elsarticle}
-%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+% for a journal layout:
+% \documentclass[final,1p,times]{elsarticle}
+% \documentclass[final,1p,times,twocolumn]{elsarticle}
+% \documentclass[final,3p,times]{elsarticle}
+% \documentclass[final,3p,times,twocolumn]{elsarticle}
+% \documentclass[final,5p,times]{elsarticle}
+% \documentclass[final,5p,times,twocolumn]{elsarticle}
 
 
 %%Use this packageto allow for accents 
@@ -52,23 +51,22 @@
 %% provided with \biboptions{...} command. Following options are
 %% valid:
 
-%%   round  -  round parentheses are used (default)
-%%   square -  square brackets are used   [option]
-%%   curly  -  curly braces are used      {option}
-%%   angle  -  angle brackets are used    <option>
-%%   semicolon  -  multiple citations separated by semi-colon
-%%   colon  - same as semicolon, an earlier confusion
-%%   comma  -  separated by comma
-%%   numbers-  selects numerical citations
-%%   super  -  numerical citations as superscripts
-%%   sort   -  sorts multiple citations according to order in ref. list
-%%   sort&compress   -  like sort, but also compresses numerical citations
-%%   compress - compresses without sorting
-%%
-%% \biboptions{comma,round}
+%   round  -  round parentheses are used (default)
+%   square -  square brackets are used   [option]
+%   curly  -  curly braces are used      {option}
+%   angle  -  angle brackets are used    <option>
+%   semicolon  -  multiple citations separated by semi-colon
+%   colon  - same as semicolon, an earlier confusion
+%   comma  -  separated by comma
+%   numbers-  selects numerical citations
+%   super  -  numerical citations as superscripts
+%   sort   -  sorts multiple citations according to order in ref. list
+%   sort&compress   -  like sort, but also compresses numerical citations
+%   compress - compresses without sorting
+%
+% \biboptions{comma,round}
 
-\journal{%Journal of Mathematical Psychology
-}
+\journal{Journal of Mathematical Psychology}
 
 \begin{document}
 
@@ -131,19 +129,15 @@ Optimal experimental design \sep Generalized linear models \sep Psycophysics \se
 \section{Introduction}
 \label{S:1}
 
-One of the main challenges in scientific research is the design of an experiment. A good experimental design will make the difference between finding an answer to our research question and wasting valuable resources like time and money.
+One of the main challenges in scientific research is the design of an experiment. A good experimental design will make the difference between finding an answer to our research question and wasting valuable resources. Optimal Experimental Design (OED) allows us to re-interpret the design of an experiment as a decision problem where the objective is to maximize a utility function. This function is a representation of our preferences over the possible results of the experiment.
 
-When designing an experiment, often one starts by making decisions about the number of participants, how many and what values of our independent variable we should test or how many times should we test those values. Most of the time, these choices are made on the basis of previous research on the field. However, it might be the case that there is not enough information to make these decisions with confidence, or that the values that are commonly used, do not allow for strong conclusions. Optimal Experimental Design (OED) offers an alternative to solve this kind of problems through the formalization of the design problem.
+To optimize the design of an experiment, first we need to identify which of our variables are subject to this procedure. For example, we might want to select which values of an independent variable should be tested, or how many times we should test each of those values. Most of the time, these choices are made on the basis of previous research. However, it might be the case that there is not enough information to make these decisions with confidence, or that the values that are commonly used, do not allow for strong conclusions. Second, we need to formalize the objective of the experiment through a utility function. There are two examples in the literature that use different functions \citep[][e.g.]{Myung2009,ZL2010}, in both examples the objective is to discriminate between competing cognitive models. Nonetheless, considerations of what makes a model ``good'' drive the authors to choose different functions. 
 
-OED allows us to re-interpret the problem of designing an experiment as a decision problem, in which the purpose is to maximize a utility function. This function is a numeric representation of our preference over the possible consequences of running an experiment. Therefore, the optimization of an experimental design requires us to have a formal interpretation of the purpose of the experiment.
+% 1. ADD CITATIONS
+In this paper, we will present a different approach where the problem is not to select between models but to make inferences about the parameters of a single one. In particular, we will present an example of OED with a model that is commonly used in Psychophysics and Decision Making, the logistic response model. %1
+In this example, we will optimize an experimental design focused on studying the ability of participants to detect changes in the success rate of a probabilistic series. Additionally, we will show how different prior assumptions can change the results obtained from this process, this will highlight the importance of the choice of prior distributions in the process of designing an experiment. It is important to note that the aproach presented here follows a Bayesian perspective of optimal designs for GLM. A good introduction to othe approaches and their limitations can be found in \citet{khurietal2006}.
 
-The concept of optimizing an experimental design is not new to psychological research. There are already examples of design optimization in the literature \citep[e.g.][]{Myung2009,ZL2010}. Both of this examples discuss and demonstrate the advantages of OED for model comparison in psychology. 
-
-In this paper, we will present a different approach where the problem is not to select between two models but to make inferences about the parameters of a single one.
-
-%falta alguna cita despues de "widely used in psychophisics".
-%falta alguna cita despues de "which has been used to model the relationship between a phisical stimulus and the probability of a given response".
-In particular, we will present an example of OED in the context of Generalized Linear Models. These models are widely used in psychophysics. The problem that will be treated here is fairly new, however, the methodological aspects remain the same even with more straight-forward psychophysical experiments. In order to do this, we will use a particular parametrization of the logistic model which is primarily used in statistics.
+The rest of the paper will be organized in the following way. First, we will introduce the concepts of OED particularly in the field of Generalized linear models. Second, we will present a brief summary of the experimental problem being addressed and, a computational model which has been used to account for the behavior of human participants under similar settings. Finally, we will present the results of the optimization procedure under different prior distributions, including one generated from the model responses to simulations of the experiment.
 
 \section{Optimal experimental design}
 
@@ -151,7 +145,7 @@ To apply the concepts of OED to a particular problem, first, we need to define t
 
 The second step would be to formalise the objective of the experiment. For example, in the case of a logistic model, we might want to find the values of our independent variable that minimize the variance of the model parameters, or we might be interested in the magnitude of the physical stimulus for which the probability of a response takes on a certain value. The formalization of the research question will define a utility function.
 
-The last step is to specify the prior information that we have about the problem at hand. This last step can be carried out in two ways, first, we can try to optimize the experiment for a particular guess about the parameter values of the model of interest, or we could use a probability distribution to account for the uncertainty in the values that we are interested in. This last step is primarily important to the optimization process for generalized linear models, because the optimal design will depend on the values of the parameters.
+The last step is to specify the prior information that we have about the problem at hand. This last step can be carried out in two ways, first, we can try to optimize the experiment for a particular guess about the parameter values of the model of interest, or we could use a probability distribution to account for the uncertainty in the values that we are interested in. This last step is primarily important to the optimization process in generalized linear models, because the optimal design will depend on the values of the parameters.
 
 % Perhaps i should present the formal arguments first a set of designs eta that belongs to...
 
@@ -193,13 +187,9 @@ Equation \ref{aproxu1} gives the exact expected utility of an esperimental desig
 \phi(\eta)= \int log \{det[nI(\theta,\eta)]\} p(\theta) d\theta
 \label{crit1}
 \end{equation}
-The function $\phi(\eta)$ is known as a design critirion. An optimal design would be the one maximizing equation \ref{crit1}, nontheless, it is worth noting that this relies on the normal approximation to the posterior distribution in \ref{Naprox}, therefore, for small smaples there are some constraints that help to assure normality (see \cite{CLCH2002}).
+The function $\phi(\eta)$ is known as a design critirion. An optimal design would be the one maximizing equation \ref{crit1}, nontheless, it is worth noting that this relies on the normal approximation to the posterior distribution in \ref{Naprox}, therefore, for small smaples there are some constraints that help to assure normality \citep[see][]{CLCH2002}.
 
-% Why is is detecting changes important for an organism?
-% 
-% Change detection in probabilistic series.
-% 
-% Arising problems with experimental design.
+% CLOSE WITH DIRECTIONAL DRIVATIVES
 
 
 % Elements:
@@ -343,6 +333,19 @@ Using models to generte prior distributions.
 %% not want to use model1-num-names.bst.
 
 \end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% INTRO PRAREAGRAPHS REMOVED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% When designing an experiment, often one starts by making decisions about the number of participants, how many and what values of our independent variable we should test or how many times should we test those values. Most of the time, these choices are made on the basis of previous research on the field. However, it might be the case that there is not enough information to make these decisions with confidence, or that the values that are commonly used, do not allow for strong conclusions. Optimal Experimental Design (OED) offers an alternative to solve this kind of problems through a re-interpretation of the experimental design as a desicion problem in which the objective is to maximaze a utility function.
+
+% This function is a numeric representation of our preference over the possible consequences of running the experiment. Therefore, the optimization of an experimental design requires us to have a formal interpretation of the purpose of the experiment.
+%For example, \citet{Myung2009} use a function that assigns a greater utility to designs that can discriminate between the predictions of two competing models, whereas, \citet{ZL2010} assign greater value to designs where the data generating model is the most likely. The objective in both examples is the same, however, the considerations of what makes a model good, play a role in the selection of the function. In the first case, models should predict different data patterns, in the second, the model that is favored by the evidence should be the one that generated the data.
+
+%The objective of this paper is to present an introductory example of OED with a model that is commonly used in the Psychophysical and Decision Making literature, the logistic response model. 
+
+%The concept of optimizing an experimental design is not new to psychological research. There are already examples of design optimization in the literature \citep[e.g.][]{Myung2009,ZL2010}. Both of this examples discuss and demonstrate the advantages of OED for model comparison in psychology. 
+
+%In particular, we will present an example of OED in the context of Generalized Linear Models. These models are widely used in psychophysics. The problem that will be treated here is fairly new, however, the methodological aspects remain the same even with more straight-forward psychophysical experiments. In order to do this, we will use a particular parametrization of the logistic model which is primarily used in statistics.
 
 %%
 %% End of file `elsarticle-template-1-num.tex'.
