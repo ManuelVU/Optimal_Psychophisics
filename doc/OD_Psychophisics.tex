@@ -39,6 +39,7 @@
 \usepackage{graphicx}
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
+\usepackage{bm}
 %% The amsthm package provides extended theorem environments
 %% \usepackage{amsthm}
 
@@ -135,26 +136,24 @@ To optimize the design of an experiment, first we need to identify which of our 
 
 % 1. ADD CITATIONS
 In this paper, we will present a different approach where the problem is not to select between models but to make inferences about the parameters of a single one. In particular, we will present an example of OED with a model that is commonly used in Psychophysics and Decision Making, the logistic response model. %1
-In this example, we will optimize an experimental design focused on studying the ability of participants to detect changes in the success rate of a probabilistic series. Additionally, we will show how different prior assumptions can change the results obtained from this process, this will highlight the importance of the choice of prior distributions in the process of designing an experiment. It is important to note that the aproach presented here follows a Bayesian perspective of optimal designs for GLM. A good introduction to othe approaches and their limitations can be found in \citet{khurietal2006}.
+In this example, we will optimize an experimental design focused on studying the ability of participants to detect changes in the success rate of a probabilistic series. Additionally, we will show how different prior assumptions can change the results obtained from this process, this will highlight the importance of the choice of prior distributions in the process of designing an experiment. It is important to note that the aproach presented here follows a Bayesian perspective. A good introduction to Bayesian and other approaches to OED for GLM, and their limitations, can be found in \citet{khurietal2006}.
 
 The rest of the paper will be organized in the following way. First, we will introduce the concepts of OED particularly in the field of Generalized linear models. Second, we will present a brief summary of the experimental problem being addressed and, a computational model which has been used to account for the behavior of human participants under similar settings. Finally, we will present the results of the optimization procedure under different prior distributions, including one generated from the model responses to simulations of the experiment.
 
 \section{Optimal experimental design}
 
-To apply the concepts of OED to a particular problem, first, we need to define the elements of the design space. This space is conformed by the variables that we can manipulate during the experiment, for example, the values that our independent variable might take or the weight (proportion of observations) assigned to each of those values. These elements are the ones that we can modify in order to optimize the design.
+The concepts of OED from a decision theoretic perspective were first presented by \citet{Lindley1972}. In this work, the author argued that the design of an experiment should be approached as a decision problem. In general, one needs to specify a utility function reflecting the purpose of the experiment and then select the design which maximizes expected utility. It is also worth noting that in practice, this process will rely on the assumption of an underlying generative model in the experiment. For example, in their paper, \citet{Myung2009} use the tools of OED to optimize an experiment to discriminate between two memory retention models. In this case, the design found will be optimal only in the case that either model is true.
 
-The second step would be to formalise the objective of the experiment. For example, in the case of a logistic model, we might want to find the values of our independent variable that minimize the variance of the model parameters, or we might be interested in the magnitude of the physical stimulus for which the probability of a response takes on a certain value. The formalization of the research question will define a utility function.
+Under the OED framework, the problem of designing an experiment reduces to selecting a design $\eta$ from a set $H$, where data $\mathbf{y}$ will be observed given the design and a model's parameters $\theta$. The utility function $U(\eta,\mathbf{y},\theta)$, maps the values of these variables to the Real numbers. For this example, the objective will be to select the $n$ values of an independent variable $x$ from an experimental space $X$. This space can be thought of as the numerical variables which can be controlled by the experimenter. The design $\eta$, will be the weight of our observations assigned to each of the $n$ design points $\eta_i=n_i/n$, with the constraint that  $\sum_{i=1}^{n}\eta_i = 1$. In this case, $\eta$ can be interpreted as a probability measure over the experimenral space.
 
-The last step is to specify the prior information that we have about the problem at hand. This last step can be carried out in two ways, first, we can try to optimize the experiment for a particular guess about the parameter values of the model of interest, or we could use a probability distribution to account for the uncertainty in the values that we are interested in. This last step is primarily important to the optimization process in generalized linear models, because the optimal design will depend on the values of the parameters.
-
-% Perhaps i should present the formal arguments first a set of designs eta that belongs to...
-
-Once we have defined the design space $\eta$, the objective of the experiment and the prior informartion $p(\theta)$, the expected utility of a design is represented by the following equation:
+The expected utility of a design $\eta$ is represented by the following equation:
 \begin{equation}
 U(\eta)=\int \int U(\eta,y,\theta)p(\theta|y,\eta)p(y|\eta) d\theta dy
 \label{eu}
 \end{equation}
-Therefore, finding the experimental design that is optimal given a utility function, reduces to the problem of finding the values for the variables in $\eta$ for which equation \ref{eu} takes it's maximum value.
+Finding the design that is optimal given a utility function, reduces to the problem of finding the values for the variables in $\eta$ for which equation \ref{eu} takes it's maximum value. However, for many applications the requiered integration is not a trivial problem, therefore, one could rely on analytic or numeric approximations to solve it.
+
+% Perhaps i should present the formal arguments first a set of designs eta that belongs to...
 
 Many utility functions have been proposed for both linear and non-linear design problems, however, as was previously mentioned, the choice of a utility function depends on the research question. For example, \cite{Myung2009} utilizes the sum of squered errors between the data generated by a model and the predictions of a competing one given an expeirmental design. This is because, the objective is to find a design that can discriminate the predictions of the two. On the other hand, \cite{ZL2010} choose a utility function based on the Bayes Factor. Both of this functions will have their advantages, nontheless, the first utility emphasizes disciminability of model's predictions, while the second one aims for a design in which the data generating model is more likely.
 
@@ -334,7 +333,7 @@ Using models to generte prior distributions.
 
 \end{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%% INTRO PRAREAGRAPHS REMOVED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTRO PRARAGRAPHS REMOVED %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % When designing an experiment, often one starts by making decisions about the number of participants, how many and what values of our independent variable we should test or how many times should we test those values. Most of the time, these choices are made on the basis of previous research on the field. However, it might be the case that there is not enough information to make these decisions with confidence, or that the values that are commonly used, do not allow for strong conclusions. Optimal Experimental Design (OED) offers an alternative to solve this kind of problems through a re-interpretation of the experimental design as a desicion problem in which the objective is to maximaze a utility function.
 
@@ -346,6 +345,21 @@ Using models to generte prior distributions.
 %The concept of optimizing an experimental design is not new to psychological research. There are already examples of design optimization in the literature \citep[e.g.][]{Myung2009,ZL2010}. Both of this examples discuss and demonstrate the advantages of OED for model comparison in psychology. 
 
 %In particular, we will present an example of OED in the context of Generalized Linear Models. These models are widely used in psychophysics. The problem that will be treated here is fairly new, however, the methodological aspects remain the same even with more straight-forward psychophysical experiments. In order to do this, we will use a particular parametrization of the logistic model which is primarily used in statistics.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OED PRARAGRAPHS REMOVED %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Once we have defined the design space $\eta$, the objective of the experiment and the prior informartion $p(\theta)$, the expected utility of a design is represented by the following equation:
+% \begin{equation}
+% U(\eta)=\int \int U(\eta,y,\theta)p(\theta|y,\eta)p(y|\eta) d\theta dy
+% \label{eu}
+% \end{equation}
+% Therefore, finding the experimental design that is optimal given a utility function, reduces to the problem of finding the values for the variables in $\eta$ for which equation \ref{eu} takes it's maximum value.
+
+%To apply the concepts of OED to a particular problem, first, we need to define the elements of the design space. This space is conformed by the variables that we can manipulate during the experiment, for example, the values that our independent variable might take or the weight (proportion of observations) assigned to each of those values. These elements are the ones that we can modify in order to optimize the design.
+
+%The second step would be to formalise the objective of the experiment. For example, in the case of a logistic model, we might want to find the values of our independent variable that minimize the variance of the model parameters, or we might be interested in the magnitude of the physical stimulus for which the probability of a response takes on a certain value. The formalization of the research question will define a utility function.
+
+%The last step is to specify the prior information that we have about the problem at hand. This last step can be carried out in two ways, first, we can try to optimize the experiment for a particular guess about the parameter values of the model of interest, or we could use a probability distribution to account for the uncertainty in the values that we are interested in. This last step is primarily important to the optimization process in generalized linear models, because the optimal design will depend on the values of the parameters.
+
 
 %%
 %% End of file `elsarticle-template-1-num.tex'.

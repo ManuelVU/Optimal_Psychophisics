@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  23 JAN 2019 17:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  24 JAN 2019 19:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -130,6 +130,14 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2014/10/28 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 207.
+)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \linenopenalty=\count96
@@ -151,18 +159,18 @@ LaTeX Info: Redefining \\ on input line 3056.
 (./OD_Psychophisics.aux)
 \openout1 = `OD_Psychophisics.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -228,12 +236,12 @@ e
 (/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 121.
+LaTeX Font Info:    Try loading font information for U+msa on input line 122.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 121.
+LaTeX Font Info:    Try loading font information for U+msb on input line 122.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -242,33 +250,33 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
  [4] [5]
-[6] <Prior_and_Predictive.pdf, id=32, 578.16pt x 453.695pt>
+[6] <Prior_and_Predictive.pdf, id=33, 578.16pt x 453.695pt>
 File: Prior_and_Predictive.pdf Graphic file (type pdf)
 
 <use Prior_and_Predictive.pdf>
-Package pdftex.def Info: Prior_and_Predictive.pdf used on input line 277.
+Package pdftex.def Info: Prior_and_Predictive.pdf used on input line 276.
 (pdftex.def)             Requested size: 390.0pt x 306.03706pt.
 
-<Support_detadx.pdf, id=33, 578.16pt x 453.695pt>
+<Support_detadx.pdf, id=34, 578.16pt x 453.695pt>
 File: Support_detadx.pdf Graphic file (type pdf)
  <use Support_detadx.pdf>
-Package pdftex.def Info: Support_detadx.pdf used on input line 283.
+Package pdftex.def Info: Support_detadx.pdf used on input line 282.
 (pdftex.def)             Requested size: 390.0pt x 306.03706pt.
 
-<Joint_Normal.pdf, id=34, 578.16pt x 453.695pt>
+<Joint_Normal.pdf, id=35, 578.16pt x 453.695pt>
 File: Joint_Normal.pdf Graphic file (type pdf)
  <use Joint_Normal.pdf>
-Package pdftex.def Info: Joint_Normal.pdf used on input line 289.
+Package pdftex.def Info: Joint_Normal.pdf used on input line 288.
 (pdftex.def)             Requested size: 390.0pt x 306.03706pt.
  [7]
 [8 <./Prior_and_Predictive.pdf>] [9 <./Support_detadx.pdf>] [10 <./Joint_Normal
 .pdf>] (./OD_Psychophisics.bbl) [11] (./OD_Psychophisics.aux) ) 
 Here is how much of TeX's memory you used:
- 2895 strings out of 493089
- 40496 string characters out of 6134842
- 108742 words of memory out of 5000000
- 6318 multiletter control sequences out of 15000+600000
- 11195 words of font info for 41 fonts, out of 8000000 for 9000
+ 2980 strings out of 493089
+ 41457 string characters out of 6134842
+ 110024 words of memory out of 5000000
+ 6393 multiletter control sequences out of 15000+600000
+ 13036 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,5n,34p,956b,224s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texl
@@ -285,7 +293,7 @@ ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on OD_Psychophisics.pdf (11 pages, 795467 bytes).
+Output written on OD_Psychophisics.pdf (11 pages, 798503 bytes).
 PDF statistics:
  121 PDF objects out of 1000 (max. 8388607)
  88 compressed objects within 1 object stream
