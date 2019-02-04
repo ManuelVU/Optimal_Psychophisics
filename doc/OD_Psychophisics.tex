@@ -188,12 +188,14 @@ Equation \ref{aproxu1} gives the exact expected utility of an esperimental desig
            & = \mathbb{E}_\theta \left( log\{det[nI(\theta,\eta)]\} \right)
 \label{crit1}
 \end{align}
-the function $\phi(\eta)$ is known as a design critirion. An optimal design would be the one maximizing equation \ref{crit1}, nontheless, it is worth noting that this relies on the normal approximation to the posterior distribution in \ref{Naprox}, therefore, for small smaples there are some constraints that can help to assure normality \citep[see][]{CLCH2002}. This kind of criteria can be found for other utility functions. For example, \citet{chalar1989} presented the derivation and application of two design criteria, one of which was $\phi(\eta)$. The second criterion, aims to optimize a design where a certain predictions of the model are of interest.
+the function $\phi(\eta)$ is known as a design criterion. An optimal design would be the one maximizing equation \ref{crit1}. It is worth noting that this relies on the normal approximation to the posterior distribution in \ref{Naprox}, therefore, for small samples there are some constraints that can help to assure normality \citep[see][]{CLCH2002}. This kind of criteria can be found for other utility functions. For example, \citet{chalar1989} presented the derivation and application of two design criteria, one of which was $\phi(\eta)$. The second one, aimed to optimize a design where certain predictions of the model are of interest.
 
-Finally, to check if a particular design is optimal, one needs to use the concept of the directional derivative \citep[see][]{chalar1989}. In this case, we denote $x$ as a design which puts all the weight on a single point $x$ in the experimental space $X$. The derivative of a design $\eta$ in the direction of the design $x$ is defined as:
+Finally, to test wether a particular design $\eta_0$ is optimal, one can use the concept of a directional derivative. The definition and conditions for this test can be found in more detail in \citet{chalar1989}. As the authours suggest, we denote $\eta_x$ as a design which puts all the weight on a single point $x$ in the experimental space $X$ and $d(\eta,x)$ as the derivative of $\eta$ in the direction of $\eta_x$. A design $\eta_0$ is optimal if the roots of the directional derivative are in the support of $\eta_0$ and is negative for any other point in $X$. For the selected criterion $\phi$, the directional derivative is equal to:
 \begin{equation}
-d(\eta,x)=\lim_{\epsilon\to 0} \epsilon^{-1}(\phi((1-\epsilon) \eta+\epsilon x)-\phi(\eta))
+d(\eta,x)=\mathbb{E}_\theta\ tr \left( I(\theta,\eta_x) I(\theta,\eta)^{-1}\right)-p
 \end{equation}
+where $p$ represents the number of parameters in the logistic model $tr(\cdot)$ is the trace.
+
 
 % CLOSE WITH DIRECTIONAL DRIVATIVES
 
