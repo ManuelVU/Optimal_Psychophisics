@@ -136,7 +136,7 @@ One of the main challenges in scientific research is the design of an experiment
 To optimize the design of an experiment, first we need to identify which of our variables are subject to this procedure. For example, we might want to select which values of an independent variable should be tested, or how many times we should test each of those values. Most of the time, these choices are made on the basis of previous research. However, it might be the case that there is not enough information to make these decisions with confidence, or that the values that are commonly used, do not allow for strong conclusions. Second, we need to formalize the objective of the experiment through a utility function. There are already examples of OED in the Psychological literature that implement different utility functions \citep[e.g.][]{Myung2009,ZL2010}. In both, the objective of the design is to discriminate between competing cognitive models, however, considerations of what makes a model ``good'' drive the authors to choose different functions.
 
 % 1. ADD CITATIONS
-In this paper, we will present a different approach where the problem is not to select between models but to make inferences about the parameters of a single one. In particular, we will present an example of OED with a model that is commonly used in Psychophysics and Decision Making, the logistic response model. %1
+In this paper, we will present another approach where the problem is not to select between models but to make inferences about the parameters of a single one. In particular, we will present an example of OED with a model that is commonly used in Psychophysics and Decision Making, the logistic response model. %1
 In this example, we will optimize an experimental design focused on studying the ability of participants to detect changes in the success rate of a probabilistic series. Additionally, we will show how different prior assumptions can change the results obtained from this process, this will highlight the importance of the choice of prior distributions in the process of designing an experiment. It is important to note that the aproach presented here follows a Bayesian perspective. A good introduction to Bayesian and other approaches to OED for GLM, and their limitations, can be found in \citet{khurietal2006}.
 
 The rest of the paper will be organized in the following way. First, we will introduce the concepts of OED particularly in the field of Generalized linear models. Second, we will present a brief summary of the experimental problem being addressed and, a computational model which has been used to account for the behavior of human participants under similar settings. Finally, we will present the results of the optimization procedure under different prior distributions, including one generated from the model responses to simulations of the experiment.
@@ -145,20 +145,18 @@ The rest of the paper will be organized in the following way. First, we will int
 
 The concepts of OED from a decision theoretic perspective were first presented by \citet{Lindley1972}. In this work, the author argued that the design of an experiment should be approached as a decision problem. In general, one needs to specify a utility function reflecting the purpose of the experiment and then select the design which maximizes expected utility. It is also worth noting that in practice, this process will rely on the assumption of an underlying data generating model. For example, in their paper, \citet{Myung2009} use the tools of OED to optimize an experiment to discriminate between two memory retention models. In this case, the design found will be optimal only in the case that either model is true.
 
-Under the OED framework, the problem of designing an experiment reduces to selecting a design $\eta$ from a set $H$, where data $\mathbf{y}$ will be observed given the design and a model's parameters $\theta$. The utility function $U(\eta,\mathbf{y},\theta)$, maps the values of these variables to the Real numbers. For this example, the objective will be to select the $n$ values of an independent variable $x$ from an experimental space $X$. This space can be thought of as the numerical variables which can be controlled by the experimenter. The design $\eta$, will be the weight of our observations assigned to each of the $n$ design points $\eta_i=n_i/n$, with the constraint that  $\sum_{i=1}^{n}\eta_i = 1$. In this case, $\eta$ can be interpreted as a probability measure over the experimenral space.
+Under the OED framework, the problem of designing an experiment reduces to selecting a design $\eta$ from a set $H$, where data $\mathbf{y}$ will be observed given the design and a model's parameters $\theta$. The utility function $U(\eta,\mathbf{y},\theta)$, maps the values of these variables to the Real numbers. For this example, the objective will be to select the $n$ values of an independent variable $x$ from an experimental space $X$. This space can be thought of as the numerical variables which can be controlled by the experimenter. The design $\eta$, will be the weight of our observations assigned to each of the $n$ design points $\eta_i=n_i/n$, with the constraint that  $\sum_{i=1}^{n}\eta_i = 1$. In this case, $\eta$ can be interpreted as a probability measure over the experimenral space and $H$ as the set of all such measures.
 
 The expected utility of a design $\eta$ is represented by the following equation:
 \begin{equation}
-U(\eta)=\int \int U(\eta,y,\theta)p(\theta|y,\eta)p(y|\eta) d\theta dy
+U(\eta)=\int \int U(\eta,\mathbf{y},\theta)p(\theta|\mathbf{y},\eta)p(\mathbf{y}|\eta) d\theta d\mathbf{y}
 \label{eu}
 \end{equation}
-where $p(\theta|\mathbf{y},\eta)$ represents the posterior probability of $\theta$ given the design $\eta$ and data $\mathbf{y}$ and, $p(y|\eta)$ is the predictive distribution of $\mathbf{y}$. Finding the design that is optimal given a utility function, reduces to the problem of finding the values for the variables in $\eta$ for which equation \ref{eu} takes it's maximum value. However, for many applications the requiered integration is not a trivial problem, therefore, one could rely on analytic or numeric approximations to solve it.
-
-% Perhaps i should present the formal arguments first a set of designs eta that belongs to...
+where $p(\theta|\mathbf{y},\eta)$ represents the posterior probability of $\theta$ given the design $\eta$ and data $\mathbf{y}$ and, $p(\mathbf{y}|\eta)$ is the predictive distribution of $\mathbf{y}$. Finding the design that is optimal given a utility function, reduces to the problem of finding the values for the variables in $\eta$ for which equation \ref{eu} takes it's maximum value. However, for many applications the requiered integration is not a trivial problem, therefore, one could rely on analytic or numeric approximations to solve it.
 
 Many utility functions have been proposed for both linear and non-linear design problems, however, as was previously mentioned, the choice of a utility function depends on the research question. For example, \cite{Myung2009} used the sum of squered errors between the data generated by a model and the predictions of a competing one given an expeirmental design. This is because, the objective is to find a design that can discriminate the predictions of the two. On the other hand, \cite{ZL2010} choose a utility function based on the Bayes Factor. Both of this functions will have their advantages, nontheless, the first, emphasizes disciminability of model's predictions, while the second one aims for a design in which the data generating model is more likely.
 
-When the objective of the experiment is to make an inference about the parameters of a generalized linear model, some authors \citep[e.g.][]{Ber1979} have proposed to consider the gain in Shanon's Information as a utility function. In this case, the objective is to find the design $\eta$ that maximizes the expected gain in Shanon Information, or equvalently, maximizes the Kullback-Leibler divergence between the posterior and prior distribution. With this function, the expected utility of an experimental design is represented by the following equation:
+When the objective of the experiment is to make an inference about the parameters of a generalized linear model, some authors \citep[e.g.][]{Ber1979} have proposed to consider the gain in Shanon's Information as a utility function. In this case, the objective is to find the design $\eta$ that maximizes the expected gain in Shanon Information, or equvalently, maximizes the Kullback-Leibler divergence between the posterior and prior distribution. With this function, the expected utility of an experimental design is defined as:
 \begin{equation}
 U(\eta)=\int \int log\frac{p(\theta|y,\eta)}{p(\theta)} p(y,\theta |\eta) d\theta dy
 \label{klu}
@@ -175,7 +173,7 @@ When dealing with generalized linear models, the posterior distribution of the p
 \theta|y,\eta \sim N\left(\hat{\theta},[nI(\hat{\theta},\eta)]^{-1}\right)
 \label{Naprox}
 \end{equation}
-Where $I(\hat{\theta},\eta)$ denotes the observed fisher information matrix given an experimental design and $\hat{\theta}$ is the maximum likelihood estimate of $\theta$. Even with this, the marginal distribution of the data ($p(y|\eta)$) in equation \ref{eu} needs to be aproximated, however, when the posterior utility only depends on $y$ through some constistent estimate of $\hat{\theta}$, a further approximation is to take the predictive distribution of  $\hat{\theta}$ to be the prior distribution \cite{chalar1989}.
+Where $I(\hat{\theta},\eta)$ denotes the observed fisher information matrix given an experimental design and $\hat{\theta}$ is the maximum likelihood estimate of $\theta$. Even with this, the marginal distribution of the data $p(\mathbf{y}|\eta)$ in equation \ref{eu} needs to be aproximated. However, when the posterior utility only depends on $y$ through some constistent estimate of $\hat{\theta}$, a further approximation is to take the predictive distribution of  $\hat{\theta}$ to be the prior distribution \cite{chalar1989}.
 
 With both aproximations, the value of $U(\eta)$ is:
 \begin{equation}
@@ -274,10 +272,6 @@ The previous integral can be approximated via Monte Carlo sampling
 
 \subsection{Consruction of the prior distribution}
 
-Prior over model parameters(Gallistel et al 2014)
-Results
-Constructing the prior: we take a multivariate normal distribution with mean and covariance equal to the unbiased estimators for both parameters.
-
 
 \subsection{Optimal design}
 
@@ -299,20 +293,8 @@ Constructing the prior: we take a multivariate normal distribution with mean and
 \label{fig:jn}
 \end{figure}
 
-Aproximating the utility function (integral) throught Monte Carlo simulation 
-Utility aproximation for 2 Design points 
-
-the approximation returns a smooth curve over the 2 point design space.
-
 \section{Discussion}
 \label{S:4}
-
-Optimal design for the example
-Properties of the most useful points (they land on the points of the curve where the steepness changes most dramatically)
-
-Advantages of Optimal Design
-
-Using models to generte prior distributions.
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
